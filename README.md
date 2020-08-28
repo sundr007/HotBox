@@ -5,3 +5,5 @@ I use this when I'm testing electronics on my benchtop.  I put this box on top o
 This box can raise the ambient temperature up to 55C.
 
 ![](3D.png?raw=true)
+
+![](PCB.png?raw=true)
