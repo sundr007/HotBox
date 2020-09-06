@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=/home/evan/workspace/P1/Inc
+HeaderPath=/home/evan/Documents/github/HotBox/SW - STM32/P1/Inc
 HeaderFiles=stm32g4xx_it.h;stm32g4xx_hal_conf.h;main.h;FreeRTOSConfig.h;
-SourcePath=/home/evan/workspace/P1/Src
+SourcePath=/home/evan/Documents/github/HotBox/SW - STM32/P1/Src
 SourceFiles=stm32g4xx_it.c;stm32g4xx_hal_msp.c;main.c;app_freertos.c;stm32g4xx_hal_timebase_tim.c;
 
 [PreviousLibFiles]

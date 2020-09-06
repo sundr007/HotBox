@@ -21,11 +21,10 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "SEVEN_SEGMENTS.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "SEVEN_SEGMENTS.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,6 +41,9 @@
 
 #define TURN_LED_ON 	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET)
 #define TURN_LED_OFF 	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET)
+
+#define TURN_HEATER_ON 	HAL_GPIO_WritePin(Heater_EN_GPIO_Port, Heater_EN_Pin, GPIO_PIN_SET)
+#define TURN_HEATER_OFF HAL_GPIO_WritePin(Heater_EN_GPIO_Port, Heater_EN_Pin, GPIO_PIN_RESET)
 
 #define A(on) 			( on ? HAL_GPIO_WritePin(A_GPIO_Port, A_Pin, GPIO_PIN_RESET) : HAL_GPIO_WritePin(A_GPIO_Port, A_Pin, GPIO_PIN_SET))
 #define B(on) 			( on ? HAL_GPIO_WritePin(B_GPIO_Port, B_Pin, GPIO_PIN_RESET) : HAL_GPIO_WritePin(B_GPIO_Port, B_Pin, GPIO_PIN_SET))
@@ -66,6 +68,8 @@
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 
+TIM_HandleTypeDef htim3;
+
 /* Definitions for blink01 */
 osThreadId_t blink01Handle;
 const osThreadAttr_t blink01_attributes = {
@@ -77,7 +81,7 @@ const osThreadAttr_t blink01_attributes = {
 osThreadId_t blink02Handle;
 const osThreadAttr_t blink02_attributes = {
   .name = "blink02",
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityBelowNormal,
   .stack_size = 128 * 4
 };
 /* USER CODE BEGIN PV */
@@ -88,11 +92,12 @@ const osThreadAttr_t blink02_attributes = {
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
+static void MX_TIM3_Init(void);
 void Startblink01(void *argument);
 void Startblink02(void *argument);
 
 /* USER CODE BEGIN PFP */
-
+static void setPWM(TIM_HandleTypeDef, uint32_t, uint16_t, uint16_t);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -129,10 +134,16 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_ADC1_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   SEVEN_SEG_Init(0);
   SEVEN_SEG_Enable(0);
   SEVEN_SEG_Write(0, 0);
+
+  __HAL_RCC_TIM3_CLK_ENABLE();
+
+//  HAL_TIM_Base_Start(&htim3);
+  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_ALL);
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -172,6 +183,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   HAL_ADC_Start(&hadc1);
+
   while (1)
   {
     /* USER CODE END WHILE */
@@ -299,6 +311,65 @@ static void MX_ADC1_Init(void)
 }
 
 /**
+  * @brief TIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM3_Init(void)
+{
+
+  /* USER CODE BEGIN TIM3_Init 0 */
+
+  /* USER CODE END TIM3_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM3_Init 1 */
+
+  /* USER CODE END TIM3_Init 1 */
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 1;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 4095;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 2000;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM3_Init 2 */
+
+  /* USER CODE END TIM3_Init 2 */
+  HAL_TIM_MspPostInit(&htim3);
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -319,7 +390,8 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, D_Pin|DIG1_CA_Pin|DIG2_CA_Pin|B_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, G_Pin|A_Pin|F_Pin|LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, G_Pin|A_Pin|F_Pin|Heater_EN_Pin 
+                          |LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : C_Pin E_Pin */
   GPIO_InitStruct.Pin = C_Pin|E_Pin;
@@ -328,11 +400,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Thermistor2_Pin Thermistor1_Pin */
-  GPIO_InitStruct.Pin = Thermistor2_Pin|Thermistor1_Pin;
+  /*Configure GPIO pin : Thermistor2_Pin */
+  GPIO_InitStruct.Pin = Thermistor2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(Thermistor2_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : SW_UP_Pin SW_DOWN_Pin */
   GPIO_InitStruct.Pin = SW_UP_Pin|SW_DOWN_Pin;
@@ -347,8 +419,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : G_Pin A_Pin F_Pin LD2_Pin */
-  GPIO_InitStruct.Pin = G_Pin|A_Pin|F_Pin|LD2_Pin;
+  /*Configure GPIO pins : G_Pin A_Pin F_Pin Heater_EN_Pin 
+                           LD2_Pin */
+  GPIO_InitStruct.Pin = G_Pin|A_Pin|F_Pin|Heater_EN_Pin 
+                          |LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -357,7 +431,35 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void user_pwm_setvalue(uint16_t value)
+{
+    TIM_OC_InitTypeDef sConfigOC;
 
+    sConfigOC.OCMode = TIM_OCMODE_PWM1;
+    sConfigOC.Pulse = value;
+    sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+    sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+    HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_3);
+    HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+}
+
+void setPWM(TIM_HandleTypeDef timer, uint32_t channel, uint16_t period,
+uint16_t pulse)
+{
+HAL_TIM_PWM_Stop(&timer, channel);
+// stop generation of pwm
+TIM_OC_InitTypeDef sConfigOC;
+timer.Init.Period = period;
+// set the period duration
+HAL_TIM_PWM_Init(&timer); // reinititialise with new period value
+sConfigOC.OCMode = TIM_OCMODE_PWM1;
+sConfigOC.Pulse = pulse;
+// set the pulse duration
+sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+HAL_TIM_PWM_ConfigChannel(&timer, &sConfigOC, channel);
+HAL_TIM_PWM_Start(&timer, channel);
+}
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_Startblink01 */
@@ -403,6 +505,14 @@ void Startblink01(void *argument)
 	    	  temp = 918 - temp/29103;
 	    	  temp = temp / 10;
 	    	  SEVEN_SEG_Write(0, temp);
+	    	  if(temp < setpoint){
+	    		  TURN_HEATER_ON;
+	    		  setPWM(htim3, TIM_CHANNEL_3, 4095, 4095);
+	    	  }
+	    	  else{
+	    		  TURN_HEATER_OFF;
+	    		  setPWM(htim3, TIM_CHANNEL_3, 4095, 2000);
+	    	  }
 	      }
 		}
 		else{
@@ -413,9 +523,8 @@ void Startblink01(void *argument)
 //			SEVEN_SEG_Write(0, i);
 //			vTaskDelay( 400 / portTICK_PERIOD_MS );
 //		}
-
+  }
   /* USER CODE END 5 */ 
-  	}
 }
 
 /* USER CODE BEGIN Header_Startblink02 */
@@ -427,14 +536,12 @@ void Startblink01(void *argument)
 /* USER CODE END Header_Startblink02 */
 void Startblink02(void *argument)
 {
-
   /* USER CODE BEGIN Startblink02 */
   /* Infinite loop */
   for(;;)
   {
 	  vTaskDelay( 5 / portTICK_PERIOD_MS );
-		SEVEN_SEG_Main();
-
+      SEVEN_SEG_Main();
   }
   /* USER CODE END Startblink02 */
 }

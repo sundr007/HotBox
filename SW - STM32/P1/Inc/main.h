@@ -51,6 +51,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -65,12 +67,12 @@ void Error_Handler(void);
 #define E_GPIO_Port GPIOF
 #define Thermistor2_Pin GPIO_PIN_0
 #define Thermistor2_GPIO_Port GPIOA
-#define Thermistor1_Pin GPIO_PIN_1
-#define Thermistor1_GPIO_Port GPIOA
 #define SW_UP_Pin GPIO_PIN_2
 #define SW_UP_GPIO_Port GPIOA
 #define SW_DOWN_Pin GPIO_PIN_7
 #define SW_DOWN_GPIO_Port GPIOA
+#define FAN_PWM_Pin GPIO_PIN_0
+#define FAN_PWM_GPIO_Port GPIOB
 #define D_Pin GPIO_PIN_8
 #define D_GPIO_Port GPIOA
 #define DIG1_CA_Pin GPIO_PIN_9
@@ -89,6 +91,8 @@ void Error_Handler(void);
 #define A_GPIO_Port GPIOB
 #define F_Pin GPIO_PIN_5
 #define F_GPIO_Port GPIOB
+#define Heater_EN_Pin GPIO_PIN_6
+#define Heater_EN_GPIO_Port GPIOB
 #define LD2_Pin GPIO_PIN_8
 #define LD2_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
