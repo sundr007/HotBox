@@ -25,6 +25,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "SEVEN_SEGMENTS.h"
+#include "TempSense.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -266,7 +267,7 @@ static void MX_ADC1_Init(void)
   /** Common config 
   */
   hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV10;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.GainCompensation = 0;
@@ -330,9 +331,9 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 1;
+  htim3.Init.Prescaler = 0;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 4095;
+  htim3.Init.Period = 10000;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
@@ -355,7 +356,7 @@ static void MX_TIM3_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 2000;
+  sConfigOC.Pulse = 0;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
@@ -399,12 +400,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : Thermistor2_Pin */
-  GPIO_InitStruct.Pin = Thermistor2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(Thermistor2_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : SW_UP_Pin SW_DOWN_Pin */
   GPIO_InitStruct.Pin = SW_UP_Pin|SW_DOWN_Pin;
@@ -479,7 +474,7 @@ void Startblink01(void *argument)
   blocked = 0;
   for(;;)
   {
-	  HAL_ADC_Start(&hadc1);
+
 	  uint32_t ADCValue;
 
 		uint32_t SW_Down = HAL_GPIO_ReadPin(SW_DOWN_GPIO_Port,SW_DOWN_Pin);
@@ -498,18 +493,17 @@ void Startblink01(void *argument)
 			SEVEN_SEG_Write(0, setpoint);
 		}
 		if (blocked==0){
+			HAL_ADC_Start(&hadc1);
 	      if (HAL_ADC_PollForConversion(&hadc1, 1000000) == HAL_OK)
 	      {
 	    	  ADCValue = HAL_ADC_GetValue(&hadc1);
-	    	  uint32_t temp	= ADCValue*10000;
-	    	  temp = 918 - temp/29103;
-	    	  temp = temp / 10;
+	    	  uint16_t temp	= (uint16_t) (readThermistor(ADCValue)+0.5);
 	    	  SEVEN_SEG_Write(0, temp);
 	    	  if(temp < setpoint){
 	    		  TURN_HEATER_ON;
 	    		  setPWM(htim3, TIM_CHANNEL_3, 4095, 4095);
 	    	  }
-	    	  else{
+	    	  else if(temp > (setpoint+1)){
 	    		  TURN_HEATER_OFF;
 	    		  setPWM(htim3, TIM_CHANNEL_3, 4095, 2000);
 	    	  }

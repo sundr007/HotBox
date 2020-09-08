@@ -29,6 +29,7 @@
 "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o"
 "Src/SEVEN_SEGMENTS.o"
 "Src/SEVEN_SEGMENTS_cfg.o"
+"Src/TempSense.o"
 "Src/app_freertos.o"
 "Src/main.o"
 "Src/stm32g4xx_hal_msp.o"

@@ -42,7 +42,8 @@ Src/main.o: ../Src/main.c \
  /home/evan/Documents/github/HotBox/SW\ -\ STM32/P1/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  /home/evan/Documents/github/HotBox/SW\ -\ STM32/P1/Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  /home/evan/Documents/github/HotBox/SW\ -\ STM32/P1/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
- /home/evan/Documents/github/HotBox/SW\ -\ STM32/P1/Inc/SEVEN_SEGMENTS.h
+ /home/evan/Documents/github/HotBox/SW\ -\ STM32/P1/Inc/SEVEN_SEGMENTS.h \
+ /home/evan/Documents/github/HotBox/SW\ -\ STM32/P1/Inc/TempSense.h
 
 /home/evan/Documents/github/HotBox/SW\ -\ STM32/P1/Inc/main.h:
 
@@ -131,3 +132,5 @@ Src/main.o: ../Src/main.c \
 /home/evan/Documents/github/HotBox/SW\ -\ STM32/P1/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
 
 /home/evan/Documents/github/HotBox/SW\ -\ STM32/P1/Inc/SEVEN_SEGMENTS.h:
+
+/home/evan/Documents/github/HotBox/SW\ -\ STM32/P1/Inc/TempSense.h:

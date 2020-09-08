@@ -6,6 +6,7 @@
 C_SRCS += \
 ../Src/SEVEN_SEGMENTS.c \
 ../Src/SEVEN_SEGMENTS_cfg.c \
+../Src/TempSense.c \
 ../Src/app_freertos.c \
 ../Src/main.c \
 ../Src/stm32g4xx_hal_msp.c \
@@ -17,6 +18,7 @@ C_SRCS += \
 OBJS += \
 ./Src/SEVEN_SEGMENTS.o \
 ./Src/SEVEN_SEGMENTS_cfg.o \
+./Src/TempSense.o \
 ./Src/app_freertos.o \
 ./Src/main.o \
 ./Src/stm32g4xx_hal_msp.o \
@@ -28,6 +30,7 @@ OBJS += \
 C_DEPS += \
 ./Src/SEVEN_SEGMENTS.d \
 ./Src/SEVEN_SEGMENTS_cfg.d \
+./Src/TempSense.d \
 ./Src/app_freertos.d \
 ./Src/main.d \
 ./Src/stm32g4xx_hal_msp.d \
