@@ -1,0 +1,893 @@
+EESchema Schematic File Version 4
+LIBS:HotBox-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Motor:Fan_4pin M1
+U 1 1 5E8FF59D
+P 4750 4900
+F 0 "M1" H 4908 4996 50  0000 L CNN
+F 1 "Fan_4pin" H 4908 4905 50  0000 L CNN
+F 2 "Connector:FanPinHeader_1x04_P2.54mm_Vertical" H 4750 4910 50  0001 C CNN
+F 3 "http://www.formfactors.org/developer%5Cspecs%5Crev1_2_public.pdf" H 4750 4910 50  0001 C CNN
+	1    4750 4900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x02 J1
+U 1 1 5E9005CC
+P 1700 2300
+F 0 "J1" H 1618 1885 50  0000 C CNN
+F 1 "Conn_01x02" H 1618 1976 50  0000 C CNN
+F 2 "AMASS:AMASS_XT30U-M_1x02_P5.0mm_Vertical" H 1618 2067 50  0000 C CNN
+F 3 "~" H 1700 2300 50  0001 C CNN
+	1    1700 2300
+	-1   0    0    1   
+$EndComp
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 5E9016FC
+P 1150 6750
+F 0 "H1" H 1250 6796 50  0000 L CNN
+F 1 "MountingHole" H 1250 6705 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 1150 6750 50  0001 C CNN
+F 3 "~" H 1150 6750 50  0001 C CNN
+	1    1150 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 5E901A09
+P 1150 6950
+F 0 "H2" H 1250 6996 50  0000 L CNN
+F 1 "MountingHole" H 1250 6905 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 1150 6950 50  0001 C CNN
+F 3 "~" H 1150 6950 50  0001 C CNN
+	1    1150 6950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 5E901B9D
+P 1150 7150
+F 0 "H3" H 1250 7196 50  0000 L CNN
+F 1 "MountingHole" H 1250 7105 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 1150 7150 50  0001 C CNN
+F 3 "~" H 1150 7150 50  0001 C CNN
+	1    1150 7150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 5E901D5E
+P 1150 7350
+F 0 "H4" H 1250 7396 50  0000 L CNN
+F 1 "MountingHole" H 1250 7305 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 1150 7350 50  0001 C CNN
+F 3 "~" H 1150 7350 50  0001 C CNN
+	1    1150 7350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Motor:Fan M2
+U 1 1 5E904BCA
+P 10050 2200
+F 0 "M2" H 10208 2296 50  0000 L CNN
+F 1 "Fan" H 10208 2205 50  0000 L CNN
+F 2 "Artesyn:LGA1155_FAN" H 10050 2210 50  0001 C CNN
+F 3 "~" H 10050 2210 50  0001 C CNN
+	1    10050 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Peltier_Element PE1
+U 1 1 5E967577
+P 3800 2200
+F 0 "PE1" H 3800 2442 50  0000 C CNN
+F 1 "Peltier_Element" H 3800 2351 50  0000 C CNN
+F 2 "Artesyn:Peltier_40x40" H 3800 2130 50  0001 C CNN
+F 3 "~" V 3800 2225 50  0001 C CNN
+	1    3800 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 2200 2150 2200
+Wire Wire Line
+	4000 2200 4550 2200
+Wire Wire Line
+	4550 2200 4550 2900
+Wire Wire Line
+	4550 3850 4000 3850
+Wire Wire Line
+	2050 3850 2050 2500
+Wire Wire Line
+	2050 2300 1900 2300
+$Comp
+L Device:Fuse F1
+U 1 1 5E9716E9
+P 2700 2200
+F 0 "F1" V 2503 2200 50  0000 C CNN
+F 1 "Fuse" V 2594 2200 50  0000 C CNN
+F 2 "Artesyn:1206_R" V 2630 2200 50  0001 C CNN
+F 3 "~" H 2700 2200 50  0001 C CNN
+	1    2700 2200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2850 2200 3050 2200
+$Comp
+L power:GND #PWR0101
+U 1 1 5E9724C4
+P 2050 3950
+F 0 "#PWR0101" H 2050 3700 50  0001 C CNN
+F 1 "GND" H 2055 3777 50  0000 C CNN
+F 2 "" H 2050 3950 50  0001 C CNN
+F 3 "" H 2050 3950 50  0001 C CNN
+	1    2050 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2050 3950 2050 3850
+Connection ~ 2050 3850
+$Comp
+L Transistor_FET:BSC028N06LS3 Q1
+U 1 1 5E973DA6
+P 4450 3100
+F 0 "Q1" H 4656 3146 50  0000 L CNN
+F 1 "BSC028N06LS3" H 4656 3055 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:TDSON-8-1" H 4650 3025 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/Infineon-BSC028N06LS3-DS-v02_02-en.pdf?fileId=db3a30431ddc9372011ebafa4c607f8c" V 4450 3100 50  0001 L CNN
+	1    4450 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4550 3300 4550 3850
+$Comp
+L power:GND #PWR0102
+U 1 1 5E97A2E5
+P 9700 4800
+F 0 "#PWR0102" H 9700 4550 50  0001 C CNN
+F 1 "GND" H 9705 4627 50  0000 C CNN
+F 2 "" H 9700 4800 50  0001 C CNN
+F 3 "" H 9700 4800 50  0001 C CNN
+	1    9700 4800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9700 4800 9700 4700
+$Comp
+L Driver_FET:MCP1416 U1
+U 1 1 5E97C065
+P 3500 3100
+F 0 "U1" H 3944 3146 50  0000 L CNN
+F 1 "MCP1416" H 3944 3055 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-5" H 3500 2700 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20002092F.pdf" H 3300 3350 50  0001 C CNN
+	1    3500 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 3100 4000 3100
+Wire Wire Line
+	3500 3400 3500 3850
+Connection ~ 3500 3850
+Wire Wire Line
+	3500 3850 3050 3850
+Wire Wire Line
+	3500 2800 3500 2500
+Wire Wire Line
+	3500 2500 3050 2500
+Wire Wire Line
+	3050 2500 3050 2400
+Connection ~ 3050 2200
+Wire Wire Line
+	3050 2200 3200 2200
+Wire Wire Line
+	3050 2500 3050 2550
+Wire Wire Line
+	3050 2850 3050 3850
+Connection ~ 3050 2500
+Connection ~ 3050 3850
+$Comp
+L MCU_Module:Arduino_Nano_v3.x A1
+U 1 1 5E981AD2
+P 7150 3750
+F 0 "A1" H 7150 2661 50  0000 C CNN
+F 1 "Arduino_Nano_v3.x" H 7150 2570 50  0000 C CNN
+F 2 "Module:Arduino_Nano" H 7300 2800 50  0001 L CNN
+F 3 "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf" H 7150 2750 50  0001 C CNN
+	1    7150 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR0103
+U 1 1 5E988327
+P 3200 2200
+F 0 "#PWR0103" H 3200 2050 50  0001 C CNN
+F 1 "+12V" H 3215 2373 50  0000 C CNN
+F 2 "" H 3200 2200 50  0001 C CNN
+F 3 "" H 3200 2200 50  0001 C CNN
+	1    3200 2200
+	1    0    0    -1  
+$EndComp
+Connection ~ 3200 2200
+Wire Wire Line
+	3200 2200 3600 2200
+$Comp
+L power:+12V #PWR0104
+U 1 1 5E9887BE
+P 7050 2550
+F 0 "#PWR0104" H 7050 2400 50  0001 C CNN
+F 1 "+12V" H 7065 2723 50  0000 C CNN
+F 2 "" H 7050 2550 50  0001 C CNN
+F 3 "" H 7050 2550 50  0001 C CNN
+	1    7050 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7050 2550 7050 2750
+$Comp
+L power:GND #PWR0105
+U 1 1 5E98B403
+P 7150 5050
+F 0 "#PWR0105" H 7150 4800 50  0001 C CNN
+F 1 "GND" H 7155 4877 50  0000 C CNN
+F 2 "" H 7150 5050 50  0001 C CNN
+F 3 "" H 7150 5050 50  0001 C CNN
+	1    7150 5050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7150 5050 7150 4750
+Wire Wire Line
+	7150 5050 7250 5050
+Wire Wire Line
+	7250 5050 7250 4750
+Connection ~ 7150 5050
+Wire Wire Line
+	2850 3100 3200 3100
+$Comp
+L Device:R R2
+U 1 1 5E9A0CFC
+P 9700 3750
+F 0 "R2" H 9770 3796 50  0000 L CNN
+F 1 "10K" H 9770 3705 50  0000 L CNN
+F 2 "Artesyn:0805_R" V 9630 3750 50  0001 C CNN
+F 3 "~" H 9700 3750 50  0001 C CNN
+	1    9700 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C3
+U 1 1 5E9A3660
+P 9250 4400
+F 0 "C3" H 9365 4446 50  0000 L CNN
+F 1 "0.1uF" H 9365 4355 50  0000 L CNN
+F 2 "Artesyn:0805_C" H 9288 4250 50  0001 C CNN
+F 3 "~" H 9250 4400 50  0001 C CNN
+	1    9250 4400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9700 4700 9250 4700
+Wire Wire Line
+	9250 4700 9250 4550
+Connection ~ 9700 4700
+Wire Wire Line
+	9250 4250 9250 4100
+Wire Wire Line
+	9250 4100 9700 4100
+Connection ~ 9700 4100
+Wire Wire Line
+	9700 3900 9700 4100
+Wire Wire Line
+	7250 2700 7250 2750
+Wire Wire Line
+	7250 2700 7800 2700
+Wire Wire Line
+	9700 2700 9700 3600
+Wire Wire Line
+	9250 4100 9250 3750
+Connection ~ 9250 4100
+$Comp
+L power:+12V #PWR0106
+U 1 1 5E9D9FE7
+P 4750 4500
+F 0 "#PWR0106" H 4750 4350 50  0001 C CNN
+F 1 "+12V" H 4765 4673 50  0000 C CNN
+F 2 "" H 4750 4500 50  0001 C CNN
+F 3 "" H 4750 4500 50  0001 C CNN
+	1    4750 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 4500 4750 4600
+$Comp
+L power:GND #PWR0107
+U 1 1 5E9DCB02
+P 4750 5250
+F 0 "#PWR0107" H 4750 5000 50  0001 C CNN
+F 1 "GND" H 4755 5077 50  0000 C CNN
+F 2 "" H 4750 5250 50  0001 C CNN
+F 3 "" H 4750 5250 50  0001 C CNN
+	1    4750 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 5250 4750 5100
+Wire Wire Line
+	5050 5000 5850 5000
+Wire Wire Line
+	5850 5000 5850 3450
+Wire Wire Line
+	5850 3450 6650 3450
+Wire Wire Line
+	6650 3550 6000 3550
+Wire Wire Line
+	6000 3550 6000 4800
+Wire Wire Line
+	6000 4800 5050 4800
+$Comp
+L Device:Thermistor_NTC TH2
+U 1 1 5E9E5AD0
+P 8900 5400
+F 0 "TH2" H 8998 5446 50  0000 L CNN
+F 1 "Thermistor_NTC" H 8998 5355 50  0000 L CNN
+F 2 "Artesyn:0805_R" H 8900 5450 50  0001 C CNN
+F 3 "~" H 8900 5450 50  0001 C CNN
+	1    8900 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0108
+U 1 1 5E9E5ADA
+P 8900 5800
+F 0 "#PWR0108" H 8900 5550 50  0001 C CNN
+F 1 "GND" H 8905 5627 50  0000 C CNN
+F 2 "" H 8900 5800 50  0001 C CNN
+F 3 "" H 8900 5800 50  0001 C CNN
+	1    8900 5800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8900 5800 8900 5700
+Wire Wire Line
+	8900 5700 8450 5700
+Wire Wire Line
+	8450 5700 8450 5550
+Connection ~ 8900 5700
+Wire Wire Line
+	8900 5700 8900 5550
+Wire Wire Line
+	8450 5250 8450 5100
+Wire Wire Line
+	8450 5100 8900 5100
+Wire Wire Line
+	8900 5100 8900 5250
+Connection ~ 8900 5100
+Wire Wire Line
+	8900 4900 8900 5100
+Connection ~ 8450 5100
+Wire Wire Line
+	8900 4600 8900 2700
+Connection ~ 8900 2700
+Wire Wire Line
+	8900 2700 9700 2700
+$Comp
+L Display_Character:DA04-11CGKWA U2
+U 1 1 5E9FDFDE
+P 7100 1500
+F 0 "U2" H 7100 2167 50  0000 C CNN
+F 1 "DA04-11CGKWA" H 7100 2076 50  0000 C CNN
+F 2 "Display_7Segment:DA04-11CGKWA" H 7125 875 50  0001 C CNN
+F 3 "http://www.kingbright.com/attachments/file/psearch/000/00/00/DA04-11CGKWA(Ver.6A).pdf" H 6980 1100 50  0001 C CNN
+	1    7100 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 3750 6550 3750
+Wire Wire Line
+	6550 3750 6550 3650
+Wire Wire Line
+	6550 3650 2850 3650
+Wire Wire Line
+	2850 3650 2850 3100
+Wire Wire Line
+	6650 3850 6450 3850
+Wire Wire Line
+	6450 3950 6650 3950
+Wire Wire Line
+	6450 4050 6650 4050
+Wire Wire Line
+	6450 4150 6650 4150
+Wire Wire Line
+	6450 4250 6650 4250
+Wire Wire Line
+	6450 4350 6650 4350
+Wire Wire Line
+	6450 4450 6650 4450
+Wire Wire Line
+	6150 4450 5750 4450
+Text Label 5750 4450 0    50   ~ 0
+G
+Wire Wire Line
+	6150 4350 5750 4350
+Text Label 5750 4250 0    50   ~ 0
+F
+Wire Wire Line
+	6150 4250 5750 4250
+Text Label 5750 3950 0    50   ~ 0
+E
+Wire Wire Line
+	6150 4150 5750 4150
+Text Label 5750 4050 0    50   ~ 0
+D
+Wire Wire Line
+	6150 4050 5750 4050
+Text Label 5750 4350 0    50   ~ 0
+A
+Wire Wire Line
+	6150 3950 5750 3950
+Text Label 5750 4150 0    50   ~ 0
+B
+Wire Wire Line
+	6150 3850 5750 3850
+Wire Wire Line
+	6400 1800 6000 1800
+Text Label 6000 1800 0    50   ~ 0
+G
+Wire Wire Line
+	6400 1700 6000 1700
+Text Label 6000 1700 0    50   ~ 0
+F
+Wire Wire Line
+	6400 1600 6000 1600
+Text Label 6000 1600 0    50   ~ 0
+E
+Wire Wire Line
+	6400 1500 6000 1500
+Text Label 6000 1500 0    50   ~ 0
+D
+Wire Wire Line
+	6400 1400 6000 1400
+Text Label 6000 1400 0    50   ~ 0
+C
+Wire Wire Line
+	6400 1300 6000 1300
+Text Label 6000 1300 0    50   ~ 0
+B
+Wire Wire Line
+	6400 1200 6000 1200
+Text Label 6000 1200 0    50   ~ 0
+A
+Text Label 7800 1800 0    50   ~ 0
+G
+Text Label 7800 1700 0    50   ~ 0
+F
+Text Label 7800 1600 0    50   ~ 0
+E
+Text Label 7800 1500 0    50   ~ 0
+D
+Text Label 7800 1400 0    50   ~ 0
+C
+Text Label 7800 1300 0    50   ~ 0
+B
+Text Label 7800 1200 0    50   ~ 0
+A
+$Comp
+L Transistor_BJT:2N3904 Q2
+U 1 1 5EA5F0BB
+P 6200 2300
+F 0 "Q2" H 6390 2346 50  0000 L CNN
+F 1 "2N3904" H 6390 2255 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 6400 2225 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 6200 2300 50  0001 L CNN
+	1    6200 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0109
+U 1 1 5EA60E81
+P 7900 2500
+F 0 "#PWR0109" H 7900 2250 50  0001 C CNN
+F 1 "GND" H 7905 2327 50  0000 C CNN
+F 2 "" H 7900 2500 50  0001 C CNN
+F 3 "" H 7900 2500 50  0001 C CNN
+	1    7900 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0110
+U 1 1 5EA613EB
+P 6300 2500
+F 0 "#PWR0110" H 6300 2250 50  0001 C CNN
+F 1 "GND" H 6305 2327 50  0000 C CNN
+F 2 "" H 6300 2500 50  0001 C CNN
+F 3 "" H 6300 2500 50  0001 C CNN
+	1    6300 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 1900 7900 1900
+Wire Wire Line
+	7900 1900 7900 2100
+Wire Wire Line
+	6400 1900 6300 1900
+Wire Wire Line
+	6300 1900 6300 2100
+$Comp
+L Device:R R4
+U 1 1 5EA675E9
+P 8900 4750
+F 0 "R4" H 8970 4796 50  0000 L CNN
+F 1 "10K" H 8970 4705 50  0000 L CNN
+F 2 "Artesyn:0805_R" V 8830 4750 50  0001 C CNN
+F 3 "~" H 8900 4750 50  0001 C CNN
+	1    8900 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5EA67B95
+P 6450 3250
+F 0 "R3" V 6550 3000 50  0000 C CNN
+F 1 "10K" V 6550 3250 50  0000 C CNN
+F 2 "Artesyn:0805_R" V 6380 3250 50  0001 C CNN
+F 3 "~" H 6450 3250 50  0001 C CNN
+	1    6450 3250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5EA682B9
+P 6450 3150
+F 0 "R1" V 6250 3150 50  0000 C CNN
+F 1 "10K" V 6350 3150 50  0000 C CNN
+F 2 "Artesyn:0805_R" V 6380 3150 50  0001 C CNN
+F 3 "~" H 6450 3150 50  0001 C CNN
+	1    6450 3150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6650 3250 6600 3250
+Wire Wire Line
+	6650 3150 6600 3150
+Wire Wire Line
+	6300 3150 6200 3150
+Wire Wire Line
+	6200 3150 6200 2750
+Wire Wire Line
+	6200 2750 6850 2750
+Wire Wire Line
+	6850 2750 6850 2300
+Wire Wire Line
+	6850 2300 7600 2300
+Wire Wire Line
+	6300 3250 5850 3250
+Wire Wire Line
+	5850 3250 5850 2300
+Wire Wire Line
+	5850 2300 6000 2300
+$Comp
+L Device:Thermistor_NTC TH1
+U 1 1 5EA87CB5
+P 9700 4400
+F 0 "TH1" H 9798 4446 50  0000 L CNN
+F 1 "Thermistor_NTC" H 9798 4355 50  0000 L CNN
+F 2 "Artesyn:0805_R" H 9700 4450 50  0001 C CNN
+F 3 "~" H 9700 4450 50  0001 C CNN
+	1    9700 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 5EA89033
+P 8450 5400
+F 0 "C2" H 8565 5446 50  0000 L CNN
+F 1 "0.1uF" H 8565 5355 50  0000 L CNN
+F 2 "Artesyn:0805_C" H 8488 5250 50  0001 C CNN
+F 3 "~" H 8450 5400 50  0001 C CNN
+	1    8450 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 5EA895BC
+P 3050 2700
+F 0 "C1" H 3165 2746 50  0000 L CNN
+F 1 "0.1uF" H 3165 2655 50  0000 L CNN
+F 2 "Artesyn:0805_C" H 3088 2550 50  0001 C CNN
+F 3 "~" H 3050 2700 50  0001 C CNN
+	1    3050 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_BJT:2N3904 Q3
+U 1 1 5EA8A641
+P 7800 2300
+F 0 "Q3" H 7990 2346 50  0000 L CNN
+F 1 "2N3904" H 7990 2255 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 8000 2225 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 7800 2300 50  0001 L CNN
+	1    7800 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R5
+U 1 1 5E9C909E
+P 6300 3850
+F 0 "R5" H 6370 3896 50  0000 L CNN
+F 1 "330" H 6370 3805 50  0000 L CNN
+F 2 "Artesyn:0805_R" V 6230 3850 50  0001 C CNN
+F 3 "~" H 6300 3850 50  0001 C CNN
+	1    6300 3850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 5E9CA64A
+P 6300 3950
+F 0 "R6" H 6370 3996 50  0000 L CNN
+F 1 "330" H 6370 3905 50  0000 L CNN
+F 2 "Artesyn:0805_R" V 6230 3950 50  0001 C CNN
+F 3 "~" H 6300 3950 50  0001 C CNN
+	1    6300 3950
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R7
+U 1 1 5E9CA9CC
+P 6300 4050
+F 0 "R7" H 6370 4096 50  0000 L CNN
+F 1 "330" H 6370 4005 50  0000 L CNN
+F 2 "Artesyn:0805_R" V 6230 4050 50  0001 C CNN
+F 3 "~" H 6300 4050 50  0001 C CNN
+	1    6300 4050
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R8
+U 1 1 5E9CADFB
+P 6300 4150
+F 0 "R8" H 6370 4196 50  0000 L CNN
+F 1 "330" H 6370 4105 50  0000 L CNN
+F 2 "Artesyn:0805_R" V 6230 4150 50  0001 C CNN
+F 3 "~" H 6300 4150 50  0001 C CNN
+	1    6300 4150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R9
+U 1 1 5E9CB19A
+P 6300 4250
+F 0 "R9" H 6370 4296 50  0000 L CNN
+F 1 "330" H 6370 4205 50  0000 L CNN
+F 2 "Artesyn:0805_R" V 6230 4250 50  0001 C CNN
+F 3 "~" H 6300 4250 50  0001 C CNN
+	1    6300 4250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R10
+U 1 1 5E9CB4D7
+P 6300 4350
+F 0 "R10" H 6370 4396 50  0000 L CNN
+F 1 "330" H 6370 4305 50  0000 L CNN
+F 2 "Artesyn:0805_R" V 6230 4350 50  0001 C CNN
+F 3 "~" H 6300 4350 50  0001 C CNN
+	1    6300 4350
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R11
+U 1 1 5E9CB7BE
+P 6300 4450
+F 0 "R11" H 6370 4496 50  0000 L CNN
+F 1 "330" H 6370 4405 50  0000 L CNN
+F 2 "Artesyn:0805_R" V 6230 4450 50  0001 C CNN
+F 3 "~" H 6300 4450 50  0001 C CNN
+	1    6300 4450
+	0    1    1    0   
+$EndComp
+Text Label 5750 3850 0    50   ~ 0
+C
+Wire Wire Line
+	9700 4700 9700 4550
+Wire Wire Line
+	7650 3750 8450 3750
+Wire Wire Line
+	9700 4100 9700 4250
+Wire Wire Line
+	8450 3750 8450 5100
+Wire Wire Line
+	9250 3750 8550 3750
+Wire Wire Line
+	8550 3750 8550 3850
+Wire Wire Line
+	8550 3850 7650 3850
+$Comp
+L Connector_Generic:Conn_01x01 J3
+U 1 1 5E9AD9C5
+P 1700 2500
+F 0 "J3" H 1618 2275 50  0000 C CNN
+F 1 "Conn_01x01" H 1618 2366 50  0000 C CNN
+F 2 "Connector:Banana_Jack_1Pin" H 1700 2500 50  0001 C CNN
+F 3 "~" H 1700 2500 50  0001 C CNN
+	1    1700 2500
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J2
+U 1 1 5E9AF4BA
+P 1700 1850
+F 0 "J2" H 1618 1625 50  0000 C CNN
+F 1 "Conn_01x01" H 1618 1716 50  0000 C CNN
+F 2 "Connector:Banana_Jack_1Pin" H 1700 1850 50  0001 C CNN
+F 3 "~" H 1700 1850 50  0001 C CNN
+	1    1700 1850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1900 1850 2150 1850
+Wire Wire Line
+	2150 1850 2150 2200
+Connection ~ 2150 2200
+Wire Wire Line
+	2150 2200 2550 2200
+Wire Wire Line
+	1900 2500 2050 2500
+Connection ~ 2050 2500
+Wire Wire Line
+	2050 2500 2050 2300
+$Comp
+L Device:C C4
+U 1 1 5E9BDCBE
+P 2650 2700
+F 0 "C4" H 2765 2746 50  0000 L CNN
+F 1 "10uF" H 2765 2655 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 2688 2550 50  0001 C CNN
+F 3 "~" H 2650 2700 50  0001 C CNN
+	1    2650 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 2550 2650 2400
+Connection ~ 3050 2400
+Wire Wire Line
+	3050 2400 3050 2200
+Wire Wire Line
+	2650 2850 2650 3850
+Connection ~ 2650 3850
+Wire Wire Line
+	2650 3850 2050 3850
+Wire Wire Line
+	2650 3850 3050 3850
+Wire Wire Line
+	2650 2400 3050 2400
+$Comp
+L Device:R R12
+U 1 1 5EA357F5
+P 7800 3300
+F 0 "R12" H 7870 3346 50  0000 L CNN
+F 1 "10K" H 7870 3255 50  0000 L CNN
+F 2 "Artesyn:0805_R" V 7730 3300 50  0001 C CNN
+F 3 "~" H 7800 3300 50  0001 C CNN
+	1    7800 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R13
+U 1 1 5EA36195
+P 8100 3300
+F 0 "R13" H 8170 3346 50  0000 L CNN
+F 1 "10K" H 8170 3255 50  0000 L CNN
+F 2 "Artesyn:0805_R" V 8030 3300 50  0001 C CNN
+F 3 "~" H 8100 3300 50  0001 C CNN
+	1    8100 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8450 5700 8100 5700
+Wire Wire Line
+	7800 5700 7800 5650
+Connection ~ 8450 5700
+Wire Wire Line
+	7800 2700 7800 3150
+Wire Wire Line
+	7800 3450 7800 4450
+Connection ~ 7800 2700
+Wire Wire Line
+	7800 2700 8100 2700
+Connection ~ 8100 2700
+Wire Wire Line
+	8100 2700 8900 2700
+Wire Wire Line
+	8100 2700 8100 3150
+Wire Wire Line
+	8100 3450 8100 4350
+Wire Wire Line
+	8100 5100 8100 5700
+Connection ~ 8100 5700
+Wire Wire Line
+	8100 5700 7800 5700
+Wire Wire Line
+	7650 4450 7800 4450
+Connection ~ 7800 4450
+Wire Wire Line
+	7650 4350 8100 4350
+Connection ~ 8100 4350
+Wire Wire Line
+	8100 4350 8100 4700
+Wire Wire Line
+	7800 4450 7800 5250
+$Comp
+L Device:LED D1
+U 1 1 5F37BE0A
+P 4000 3650
+F 0 "D1" V 4039 3533 50  0000 R CNN
+F 1 "LED" V 3948 3533 50  0000 R CNN
+F 2 "LED_SMD:LED_0603_1608Metric" H 4000 3650 50  0001 C CNN
+F 3 "~" H 4000 3650 50  0001 C CNN
+	1    4000 3650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R14
+U 1 1 5F380F6F
+P 4000 3300
+F 0 "R14" H 4070 3346 50  0000 L CNN
+F 1 "330" H 4070 3255 50  0000 L CNN
+F 2 "Artesyn:0805_R" V 3930 3300 50  0001 C CNN
+F 3 "~" H 4000 3300 50  0001 C CNN
+	1    4000 3300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4000 3850 4000 3800
+Wire Wire Line
+	4000 3500 4000 3450
+Wire Wire Line
+	4000 3150 4000 3100
+Connection ~ 4000 3850
+Wire Wire Line
+	4000 3850 3500 3850
+Connection ~ 4000 3100
+Wire Wire Line
+	4000 3100 4250 3100
+$Comp
+L 1Evan:SW_Push_4PIN SW1
+U 1 1 5F3A0FE2
+P 7800 5450
+F 0 "SW1" V 7754 5598 50  0000 L CNN
+F 1 "SW_Push_4PIN" V 7845 5598 50  0000 L CNN
+F 2 "Artesyn:SW_D6" H 7800 5650 50  0001 C CNN
+F 3 "~" H 7800 5650 50  0001 C CNN
+F 4 "401-1994-ND" H 7800 5450 50  0001 C CNN "DigikeyPN"
+	1    7800 5450
+	0    1    1    0   
+$EndComp
+$Comp
+L 1Evan:SW_Push_4PIN SW2
+U 1 1 5F3A1792
+P 8100 4900
+F 0 "SW2" V 8054 5048 50  0000 L CNN
+F 1 "SW_Push_4PIN" V 8145 5048 50  0000 L CNN
+F 2 "Artesyn:SW_D6" H 8100 5100 50  0001 C CNN
+F 3 "~" H 8100 5100 50  0001 C CNN
+F 4 "401-1994-ND" H 8100 4900 50  0001 C CNN "DigikeyPN"
+	1    8100 4900
+	0    1    1    0   
+$EndComp
+$EndSCHEMATC
