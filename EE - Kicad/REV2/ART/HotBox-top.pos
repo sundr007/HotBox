@@ -1,0 +1,22 @@
+### Module positions - created on Mon 14 Dec 2020 10:34:31 PM CST ###
+### Printed by Pcbnew version kicad 5.1.4+dfsg1-1
+## Unit = inches, Angle = deg.
+## Side : top
+# Ref     Val           Package                             PosX       PosY       Rot  Side
+C1        0.1uF         0805_C                            0.5200     3.1500   90.0000  top
+C2        0.1uF         0805_C                            3.1693     0.8661    0.0000  top
+C3        0.1uF         0805_C                            3.1732     1.0236    0.0000  top
+C5        0.1uF         0805_C                            0.9700     0.4975  270.0000  top
+D1        LED           LED_0603_1608Metric               0.7978     3.2963   90.0000  top
+D2        D             D_SMA                             3.1350     3.0225   90.0000  top
+Q1        BSC028N06LS3  TDSON-8-1                         0.9055     3.0118  270.0000  top
+Q2        PUMB11,115    SOT-363_SC-70-6_Handsoldering     0.8250     0.5350   90.0000  top
+Q4        PUMD3,115     SOT-363_SC-70-6_Handsoldering     0.6649     3.0875    0.0000  top
+R2        10K           0805_R                            3.0315     1.0236    0.0000  top
+R4        10K           0805_R                            3.0315     0.8661    0.0000  top
+R14       10k           0805_R                            0.7190     3.2923  270.0000  top
+R15       10k           0805_R                            0.7556     3.1950  180.0000  top
+RN1       510           R_Array_Convex_4x0603             0.5450     1.3175   90.0000  top
+RN2       510           R_Array_Convex_4x0603             0.7150     1.3175   90.0000  top
+U1        UA78M33CDCYR  SOT-223-3_TabPin2                 0.9250     0.9775    0.0000  top
+## End

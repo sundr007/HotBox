@@ -1,0 +1,8 @@
+### Module positions - created on Mon 14 Dec 2020 10:34:31 PM CST ###
+### Printed by Pcbnew version kicad 5.1.4+dfsg1-1
+## Unit = inches, Angle = deg.
+## Side : bottom
+# Ref     Val             Package                PosX       PosY       Rot  Side
+TH1       Thermistor_NTC  0805_R              -3.2000     0.3431  270.0000  bottom
+TH2       Thermistor_NTC  0805_R              -3.5947     1.4646    0.0000  bottom
+## End
