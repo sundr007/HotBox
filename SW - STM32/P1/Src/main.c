@@ -407,7 +407,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : SW_UP_Pin SW_DOWN_Pin */
   GPIO_InitStruct.Pin = SW_UP_Pin|SW_DOWN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : D_Pin DIG1_CA_Pin DIG2_CA_Pin B_Pin */
