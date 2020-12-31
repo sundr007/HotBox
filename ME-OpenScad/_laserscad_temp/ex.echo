@@ -1,4 +1,0 @@
-ECHO: "Variable "lkerf" was not specified. Using default value 0."
-ECHO: "Variable "lmargin" was not specified. Using default value 2."
-ECHO: "Variable "lidentify" was not specified. Using default value false."
-ECHO: "[laserscad] ##top,308.8,308.8##"
