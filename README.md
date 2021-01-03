@@ -8,6 +8,8 @@ The design consists of a finger edge laser cut acrylic box that has a circuit bo
 
 The circuit board assembly consists of a 2 layer PCB meant to fit PCBWAY's cheap board special (hint,they're $1 a piece for QTY 5).  On the PCB there is a ST NUCLEO-G431KB board which is an easy way to add a microcontroller.  There's 2 buttons to control temperature setpoint, a 7 segment display to display temperature, a peltier plate that acts as the heating element, and an Intel LGA1155 processor fan to spread the heat from the peltier plate.
 
+![](Video.gif?raw=true)
+
 ![](3D.png?raw=true)
 
 ![](PCB.png?raw=true)
