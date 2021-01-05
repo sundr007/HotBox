@@ -2,3 +2,5 @@
 *.h linguist-detectable=false
 *.d linguist-detectable=false
 *.mk linguist-detectable=false
+*.scad linguist-detectable=true
+*.kicad_pcb linguist-detectable=true
