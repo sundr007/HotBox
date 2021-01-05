@@ -4,3 +4,4 @@
 *.mk linguist-detectable=false
 *.scad linguist-detectable=true
 *.kicad_pcb linguist-detectable=true
+*.sch linguist-detectable=true
